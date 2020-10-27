@@ -9,11 +9,11 @@ MK-runner supports two commands <b>produce</b> and <b>serve</b>
 
 ## How to producing the website?
 ```
-$ docker run <arguments> <arguments2> <the-docker-image-name> produce <arguments2>
+$ docker run <arguments> <the-docker-image-name> produce
 ```
 please replace
-\<arguments\> to -v <mkdocs project path in host>:<mkdocs project path in container> -e MKPATH=<mkdocs project path in host>
-and <the-docker-image-name\> to docker image name.
+\<arguments\> to -v \<mkdocs project path in host\>:\<mkdocs project path in container\> -e MKPATH=\<mkdocs project path in host\>
+and \<the-docker-image-name\> to docker image name.
 
 after running the command, please find ".tar.gz" file in the mounted path.
 ".tar.gz" file will contain index.html in it's root, and all the resources produced by MKdocs.
