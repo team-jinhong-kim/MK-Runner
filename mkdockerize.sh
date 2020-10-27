@@ -6,7 +6,8 @@ Manual() {
   echo "docker run -p 8000:8000 <arguments> <docker-image-name> serve"
 }
 
-# if arg 1 is produce, produce mkdocs project then return it's tar.gz file
+# if arg 1 is produce, produce mkdocs project then return it's .tar.gz file
+# after creating .tar.gz, remove site dir
 if [[ $1 == 'produce' ]];
 then
   cd $MKPATH
