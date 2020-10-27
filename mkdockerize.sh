@@ -10,9 +10,10 @@ Manual() {
 if [[ $1 == 'produce' ]];
 then
   cd $MKPATH
-  mkdocs build
+  mkdocs build --quiet
   cd ..
   tar -zcvf .tar.gz -C $MKPATH .
+  rm -rf $MKPATH/site
   mv .tar.gz $MKPATH
 elif [[ $1 == 'serve' ]];
 then
