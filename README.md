@@ -12,7 +12,7 @@ MK-runner supports two commands <b>produce</b> and <b>serve</b>
 $ docker run <arguments> <the-docker-image-name> produce
 ```
 please replace
-\<arguments\> to -v \<mkdocs project path in host\>:\<mkdocs project path in container\> -e MKPATH=\<mkdocs project path in host\>
+\<arguments\> to -v \<mkdocs project path in host\>:\<mkdocs project path in container\> -e MKPATH=\<mkdocs project path in container\>
 and \<the-docker-image-name\> to docker image name.
 
 after running the command, please find ".tar.gz" file in the mounted path.
