@@ -6,19 +6,35 @@ Manual() {
   echo "docker run -p 8000:8000 <arguments> <docker-image-name> serve"
 }
 
-# if arg 1 is produce, produce mkdocs project then return it's .tar.gz file
-# after creating .tar.gz, remove site dir
 if [[ $1 == 'produce' ]];
 then
+
   cd $MKPATH
+
+  if ! grep -q 'dev_addr: 0.0.0.0:8000' mkdocs.yml;
+  then
+    echo 'dev_addr: 0.0.0.0:8000' >> mkdocs.yml
+  fi
+
+  if [[ -d mkserve ]];
+  then
+    rm -rf mkserve
+  fi
+
   mkdocs build --quiet
   cd ..
   tar -zcvf .tar.gz -C $MKPATH .
   rm -rf $MKPATH/site
   mv .tar.gz $MKPATH
+
 elif [[ $1 == 'serve' ]];
 then
-  echo "serve!"
+
+  cd $MKPATH
+  mkdir mkserve
+  tar -zxvf .tar.gz -C mkserve
+  cd mkserve
+  mkdocs serve
 else
   Manual
 fi
