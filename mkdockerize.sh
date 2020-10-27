@@ -6,16 +6,17 @@ Manual() {
   echo "docker run -p 8000:8000 <arguments> <docker-image-name> serve"
 }
 
-#debug
-echo $1
-echo $MK_PATH
-
+# if arg 1 is produce, produce mkdocs project then return it's tar.gz file
 if [[ $1 == 'produce' ]];
 then
-  echo "arg = produce"
+  cd $MKPATH
+  mkdocs build
+  cd ..
+  tar -zcvf .tar.gz -C $MKPATH .
+  mv .tar.gz $MKPATH
 elif [[ $1 == 'serve' ]];
 then
-  echo "arg = serve"
+  echo "serve!"
 else
   Manual
 fi
