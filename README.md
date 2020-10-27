@@ -22,6 +22,7 @@ after running the command, please find ".tar.gz" file in the mounted path.
 ```
 $ docker run -p 8000:8000 <arguments> <the-docker-image-name> serve
 ```
-please replace \<arguments\> to "-v mkdocs project path in host : mkdocs project path in container" and
- \<the-docker-image-name\> to docker image name.
+please replace
+\<arguments\> to -v \<mkdocs project path in host\>:\<mkdocs project path in container\> -e MKPATH=\<mkdocs project path in container\>
+and \<the-docker-image-name\> to docker image name.
  after runng the command you can check it's result by browse to http://localhost:8000 .
