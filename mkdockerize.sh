@@ -2,7 +2,7 @@
 
 Manual() {
   echo "run example"
-  echo "create Mkdocs project: docker run <arguments> <docker-image-name> produce"
+  echo "create Mkdocs project: docker run <arguments> <docker-image-name> produce <output path(.tar.gz)>"
   echo "docker run -p 8000:8000 <arguments> <docker-image-name> serve"
 }
 
@@ -23,9 +23,10 @@ then
 
   mkdocs build --quiet
   cd ..
-  tar -zcvf .tar.gz -C $MKPATH .
+  tar -zcvf .tar.gz -C $MKPATH . &> /dev/null
   rm -rf $MKPATH/site
-  mv .tar.gz $MKPATH
+  cat .tar.gz
+  rm .tar.gz
 
 elif [[ $1 == 'serve' ]];
 then
