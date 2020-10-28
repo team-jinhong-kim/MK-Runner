@@ -11,4 +11,4 @@ COPY mkdockerize.sh ./
 
 RUN chmod +x ./mkdockerize.sh
 RUN pwd
-ENTRYPOINT ["sh", "/app/mkdockerize.sh"]
+ENTRYPOINT ["/app/mkdockerize.sh"]
