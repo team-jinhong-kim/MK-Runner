@@ -16,11 +16,6 @@ then
     echo 'dev_addr: 0.0.0.0:8000' >> mkdocs.yml
   fi
 
-  if [[ -d mkserve ]];
-  then
-    rm -rf mkserve
-  fi
-
   mkdocs build --quiet
   cd ..
   tar -zcvf .tar.gz -C $MKPATH . &> /dev/null
