@@ -33,7 +33,7 @@ then
 
   cd $MKPATH
   mkdir mkserve
-  tar -zxvf .tar.gz -C mkserve
+  tar -zxvf - -C mkserve
   cd mkserve
   mkdocs serve
 else
