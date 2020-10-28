@@ -1,16 +1,15 @@
 pipeline {
-  agent {
-    dockerfile true
-  }
+  agent any
   stages {
     stage('build') {
       steps {
-        sh 'docker run -v /Users/jinhongkim/projects/MK-Runner/project:/app/project -e MKPATH=/app/project test produce'
+        sh 'build.sh'
       }
     }
     stage('test') {
       steps {
-        sh 'Docker run -p 8000:8000 -v /Users/jinhongkim/projects/MK-Runner/project:/app/project -e MKPATH=/app/project test serve'
+        sh 'serve.sh'
+        sh 'curl localhost:8000'
       }
     }
   }
