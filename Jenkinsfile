@@ -4,7 +4,7 @@ node {
   }
 
   stage('build'){
-    app = docker.build('team-jinhong-kim/mk-runner:test')
+    app = docker.build('test')
     sh 'docker run -v /Users/jinhongkim/projects/MK-Runner/project:/app/project -e MKPATH=/app/project test produce > ./project/.tar.gz'
   }
   stage('test'){
