@@ -18,10 +18,13 @@ then
 
   mkdocs build --quiet
   cd ..
+  if [[ -f ".tar.gz" ]];
+  then
+    rm .tar.gz
+  fi
   tar -zcvf .tar.gz -C $MKPATH . &> /dev/null
   rm -rf $MKPATH/site
   cat .tar.gz
-  rm .tar.gz
 
 elif [[ $1 == 'serve' ]];
 then
